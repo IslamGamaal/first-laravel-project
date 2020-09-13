@@ -358,7 +358,7 @@ var AppModule = /** @class */ (function () {
                 _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"].forRoot([
                     { path: 'users-list', component: _users_list_users_list_component__WEBPACK_IMPORTED_MODULE_5__["UsersListComponent"] },
                     { path: 'profile/:id', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_6__["ProfileComponent"] },
-                    { path: '', pathMatch: 'full', redirectTo: '/users-list' },
+                    { path: '', pathMatch: 'full', redirectTo: 'users-list' },
                 ]),
             ],
             providers: [

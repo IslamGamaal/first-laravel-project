@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +17,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('/token/revoke', 'Api\Users\UsersController@revoke')->name('revoke');
+    Route::get('/auth', 'Api\Users\UsersController@authUser')->name('auth');
+    Route::get('/user/{id}', 'Api\Users\UsersController@userById')->name('user');
+    Route::get('/users', 'Api\Users\UsersController@allUsers')->name('users');
 });
+

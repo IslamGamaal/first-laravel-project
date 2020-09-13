@@ -15,23 +15,42 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth', function () {
-    if(!Auth::check()) {
-        $user = App\User::find(1);
-        Auth::login($user);
-    }
-    return Auth::user();
-});
-
-Route::get('/user/{id}', function ($id) {
-    return \App\User::find($id)? \App\User::find($id) : "not found";
-    //return DB::table('users')->where('id', '=', $id)->get();
-});
-
-Route::get('/all_users', function () {
-    return \App\User::all();
-});
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
+//Route::get('/app/users-list', function () {
+//    dd("hellooooo");
+//    return redirect('/app');
+//});
+//
+//Route::get('/app/profile/{id}', function () {
+//    return redirect('/app');
+//});
+//
+//Route::get('/auth', function () {
+//    if(!Auth::check()) {
+//        $user = App\User::find(1);
+//        Auth::login($user);
+//    }
+//    return Auth::user();
+//});
+//
+//Route::get('/user/{id}', function ($id) {
+//    return \App\User::find($id)? \App\User::find($id) : "not found";
+//    //return DB::table('users')->where('id', '=', $id)->get();
+//});
+//
+//Route::get('/all_users', function () {
+//    return \App\User::all();
+//});
+
+
+
